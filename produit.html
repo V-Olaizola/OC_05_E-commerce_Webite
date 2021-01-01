@@ -14,8 +14,55 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
   </head>
-  <body>
-      
+  
+  <body id="bodyProduit">   
+    <header id="headerProduit">
+      <div class="logo">Orinounours <span>by Orinoco</span></div>
+      <div class="accueil"><a href="/index.html">Accueil</a></div> 
+      <div class="panier"><a href="/panier.html" target="_blank ">Panier</a> </div> <!--renvoi vers page panier-->
+    </header>
+
+    <main id="mainProduit">
+      <section id="sectionPic">
+        <img id="teddyImg">
+      </section>
+
+      <section id="sectionDescription">
+        <h2 id="teddyName"></h2>
+        <h3 id="teddyPrice"></h3>
+        <p id="teddyDescription"></p>
+      </section>
+
+      <section id="sectionOptionProduit">
+        <div id="optionQuantite">
+          <label for="quantite">Quantité</label>
+          <select
+            name="quantite"
+            id="quantite"
+            required>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+          </select>
+        </div>
+
+        <div id="optionCouleur">
+          <label for="couleur">Couleur</label>
+          <select
+            name="couleur"
+            id="couleur"
+            required>
+          </select>
+        </div>
+        <button onclick="ajouter()">Ajouter</button>
+      </section>
+    </main>
+    
+    <footer>
+      <p>Orinounours by Orinoco - All Rights Reserved</p>
+    </footer>
+  
   </body>
   <script>
       
