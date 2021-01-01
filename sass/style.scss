@@ -128,17 +128,17 @@ header {
 
 // Page Produit
 
-#main_produit {
+#mainProduit {
     display: flex;
     justify-content: center;
     margin: 100px 50px;
 }
 
-#section_pic {
+#sectionPic {
     width: 40%;
 }
 
-#teddy_img {
+#teddyImg {
     @include boxshadow-teddies();
     border: solid 1px $colorPrem;
     border-radius: 10px;
@@ -151,7 +151,7 @@ header {
     }
 }
 
-#section_description {
+#sectionDescription {
     width: 40%;
 
     h2,
@@ -160,7 +160,7 @@ header {
     }
 }
 
-#section_optionProduit {
+#sectionOptionProduit {
     width: 20%;
     border: solid .5px black;
     border-radius: 10px;
@@ -178,7 +178,7 @@ header {
     margin-bottom: 20px;
 }
 
-#color_select {
+#colorSelect {
     margin-bottom: 40px;
 }
 
@@ -189,13 +189,13 @@ select:hover {
 
 // Page Panier
 
-#main_panier {
+#mainPanier {
     font-size: 1rem;
     margin: 20px;
     text-align: center;
 }
 
-#liste-produits {
+#listeProduits {
     @include boxshadow-inset();
     border-radius: 30px;
     margin: 20px 0;
@@ -252,7 +252,7 @@ select:hover {
     margin-top: 20px;
 }
 
-#panier-form {
+#panierForm {
     @include boxshadow-inset();
     border-radius: 30px;
     padding: 20px;
@@ -281,7 +281,7 @@ input {
 
 // Page Confirmation
 
-#confirmation-message {
+#confirmationMessage {
     @include boxshadow-inset();
     font-size: 1.3rem;
     text-align: center;

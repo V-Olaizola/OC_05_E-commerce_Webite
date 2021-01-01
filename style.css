@@ -102,17 +102,17 @@ header a:hover {
   margin: 20px;
 }
 
-#main_produit {
+#mainProduit {
   display: flex;
   justify-content: center;
   margin: 100px 50px;
 }
 
-#section_pic {
+#sectionPic {
   width: 40%;
 }
 
-#teddy_img {
+#teddyImg {
   box-shadow: 0px 0px 80px -8px rgba(241, 195, 232, 0.85);
   -webkit-box-shadow: 0px 0px 80px -8px rgba(241, 195, 232, 0.85);
   -moz-box-shadow: 0px 0px 80px -8px rgba(241, 195, 232, 0.85);
@@ -122,19 +122,19 @@ header a:hover {
   width: 80%;
   transition: transform 0.5s;
 }
-#teddy_img:hover {
+#teddyImg:hover {
   transform: scale(1.2);
 }
 
-#section_description {
+#sectionDescription {
   width: 40%;
 }
-#section_description h2,
-#section_description h3 {
+#sectionDescription h2,
+#sectionDescription h3 {
   margin-bottom: 10px;
 }
 
-#section_optionProduit {
+#sectionOptionProduit {
   width: 20%;
   border: solid 0.5px black;
   border-radius: 10px;
@@ -152,7 +152,7 @@ header a:hover {
   margin-bottom: 20px;
 }
 
-#color_select {
+#colorSelect {
   margin-bottom: 40px;
 }
 
@@ -161,13 +161,13 @@ select:hover {
   background-color: #f1c3e8;
 }
 
-#main_panier {
+#mainPanier {
   font-size: 1rem;
   margin: 20px;
   text-align: center;
 }
 
-#liste-produits {
+#listeProduits {
   box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -webkit-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -moz-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
@@ -176,7 +176,7 @@ select:hover {
   padding: 20px;
   font-size: 1.3rem;
 }
-#liste-produits h2 {
+#listeProduits h2 {
   padding-bottom: 30px;
 }
 
@@ -225,7 +225,7 @@ select:hover {
   margin-top: 20px;
 }
 
-#panier-form {
+#panierForm {
   box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -webkit-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -moz-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
@@ -233,7 +233,7 @@ select:hover {
   padding: 20px;
   margin: auto;
 }
-#panier-form h3 {
+#panierForm h3 {
   margin-bottom: 50px;
 }
 
@@ -253,7 +253,7 @@ input {
   margin-top: 40px;
 }
 
-#confirmation-message {
+#confirmationMessage {
   box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -webkit-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -moz-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;

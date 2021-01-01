@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+
+  <!-- HEAD -->
+
   <head>
     <meta charset="utf-8" />
     <title>Orinounours by Orinoco - Ours en pelouche</title>
@@ -14,6 +17,8 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
   </head>
+
+  <!-- BODY -->
   
   <body id="bodyProduit">   
     <header id="headerProduit">
@@ -58,13 +63,77 @@
         <button onclick="ajouter()">Ajouter</button>
       </section>
     </main>
-    
+
     <footer>
       <p>Orinounours by Orinoco - All Rights Reserved</p>
     </footer>
   
   </body>
+
+  <!-- SCRIPT -->
+
   <script>
-      
+
+  // URL Search Param
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const idTeddies = urlParams.get('id')
+
+  function fillProduct (nounourses) {
+
+  // Create Option Element and Assign Color
+    for (let option of nounourses.colors) {
+      let colorSelect = document.getElementById('couleur')
+      let optionColor = document.createElement('option')
+      optionColor.setAttribute('class', 'optionColor')
+      optionColor.text = option
+      colorSelect.add(optionColor)
+    } 
+  // Loading Teddy Info
+    let teddyImg = document.getElementById('teddyImg')
+    teddyImg.setAttribute('src', nounourses.imageUrl)
+    let teddyName = document.getElementById('teddyName')
+    teddyName.textContent = nounourses.name
+    let teddyPrice = document.getElementById('teddyPrice')
+    teddyPrice.textContent = nounourses.price/100 + "€"
+    let teddyDescription = document.getElementById('teddyDescription')
+    teddyDescription.textContent = nounourses.description
+  }
+  // Fetch using ID
+  async function detailTeddy() {
+    await fetch ('http://localhost:3000/api/teddies/' + idTeddies)
+      .then((response) => response.json())
+      .then((nounours) => fillProduct(nounours))
+  }
+  detailTeddy()
+
+  // création du panier 
+
+  function ajouter (){
+    let product = localStorage.getItem(idTeddies)
+    product = JSON.parse(product)
+    let quantite = document.getElementById('quantite')
+    let couleur = document.getElementById('couleur')
+    let teddyDetails = {
+      quantite: Number(quantite.value), 
+      couleur: couleur.value}
+    if (!product){
+      localStorage.setItem(idTeddies, JSON.stringify([teddyDetails]))
+      alert("L'article a été ajouté au panier")    
+    } else {
+        for (let item of product) {
+          if (item.couleur === couleur.value){
+            item.quantite += teddyDetails.quantite
+            localStorage.setItem(idTeddies, JSON.stringify(product))
+            alert("L'article a été ajouté au panier")    
+            return
+          }
+        }
+        product.push(teddyDetails)
+        localStorage.setItem(idTeddies,JSON.stringify(product))
+        alert("L'article a été ajouté au panier")    
+      }
+  } 
+
   </script>
 </html>
