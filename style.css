@@ -42,6 +42,10 @@ header a:hover {
   transition: all 0.5s ease;
 }
 
+#teddyPrice {
+  display: inline;
+}
+
 #intro {
   box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -webkit-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
@@ -51,7 +55,7 @@ header a:hover {
   border-top: 1px solid none;
   border-radius: 30px;
   margin: 20px;
-  padding: 10px 0 20px 0;
+  padding: 50px 0;
 }
 #intro img {
   width: 30px;
@@ -126,6 +130,10 @@ header a:hover {
   transform: scale(1.2);
 }
 
+#teddyPrice {
+  display: inline;
+}
+
 #sectionDescription {
   width: 40%;
 }
@@ -174,7 +182,6 @@ select:hover {
   border-radius: 30px;
   margin: 20px 0;
   padding: 20px;
-  font-size: 1.3rem;
 }
 #listeProduits h2 {
   padding-bottom: 30px;
@@ -253,7 +260,7 @@ input {
   margin-top: 40px;
 }
 
-#confirmationMessage {
+#confirm {
   box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -webkit-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
   -moz-box-shadow: 0px 0px 69px 20px rgba(241, 195, 232, 0.85) inset;
@@ -262,9 +269,12 @@ input {
   border-bottom: solid 1px none;
   border-top: 1px solid none;
   border-radius: 30px;
-  margin: 20px;
-  margin-bottom: 50px;
-  padding: 10px 50px 20px;
+  margin: 50px;
+  padding: 30px;
+}
+
+#itemPanier {
+  margin-left: 5px;
 }
 
 footer {

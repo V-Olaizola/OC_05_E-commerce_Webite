@@ -1,23 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Orinounours by Orinoco - Ours en pelouche</title>
-    <meta
-      name="description"
-      content="Confirmation commande ours en peluche faits à la main de qualité - Fabrication Française."
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
-  </head>
-  <body>
-      
-  </body>
-  <script>
-      
-  </script>
+
+    <!-- HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Orinounours by Orinoco - Ours en pelouche</title>
+        <meta
+          name="description"
+          content="Confirmation commande ours en peluche faits à la main de qualité - Fabrication Française."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- BODY -->
+
+    <body>
+        <header>
+            <div class="logo">Orinounours <span>by Orinoco</span></div>
+            <div class="accueil"><a href="/index.html">Accueil</a></div> 
+        </header>
+        <main id="content">
+            <div id="confirm"></div>
+        </main> 
+        <footer>
+            <p>Orinounours by Orinoco - All Rights Reserved</p>
+        </footer>
+
+    <!-- SCRIPT -->
+
+      <script>
+
+      //variables Globales
+      var url_string = window.location.href
+      var url = new URL(url_string);
+      var orderId = url.searchParams.get("OrderId");
+
+      function createDivOrderId(orderId) {
+          let div = document.getElementById('confirm')
+          let title = document.createElement('h4')
+          let contenuTitle = document.createTextNode(`Merci pour votre confiance`)
+          div.appendChild(title)
+          title.appendChild(contenuTitle)
+          let newDiv = document.createElement('p')
+          let contenu = document.createTextNode(`Votre numéro de commande est : ${orderId}`)
+          div.appendChild(newDiv)
+          newDiv.appendChild(contenu)
+
+          addTotalPriceOrder(div)
+          localStorage.clear()
+      }
+
+      function addTotalPriceOrder(parent) {
+          let total = 0
+          for (let keys of Object.keys(localStorage)) {
+              for (product of JSON.parse(localStorage[keys])) {
+                  let totalPriceProduct = product.quantite * product.prix
+                  total += totalPriceProduct
+              }
+          }
+          let divPrice = document.createElement('p')
+          let contenu = document.createTextNode("Le prix total de votre commande est de : " + total + "€")
+          parent.appendChild(divPrice)
+          divPrice.appendChild(contenu)
+      }
+
+      createDivOrderId(orderId)
+
+      </script>
+
+    </body>
+
 </html>
