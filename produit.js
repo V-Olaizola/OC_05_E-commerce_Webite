@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 const idTeddies = urlParams.get('id')
 
 // Fonction qui récupère les infos du Teddy et les place dans le DOM
-function fillProduct (nounourses) {
+fillProduct = nounourses => {
     for (let option of nounourses.colors) {
         let colorSelect = document.getElementById('couleur')
         let optionColor = document.createElement('option')
@@ -31,7 +31,7 @@ async function detailTeddy() {
 //On appelle la fonction
 detailTeddy()
 // Création du panier (localStorage)
-function ajouter (){   // fonction appelée dans le bouton "Ajouter" en HTML
+ajouter = () => {   // fonction appelée dans le bouton "Ajouter" en HTML
     let product = localStorage.getItem(idTeddies)
     product = JSON.parse(product)
     let quantite = document.getElementById('quantite')
@@ -61,7 +61,7 @@ function ajouter (){   // fonction appelée dans le bouton "Ajouter" en HTML
 } 
 
 // Fonction qui indique la quantité d'objects présents dans le panier dans le Header
-function cartCount() {
+cartCount = () => {
     let panier = document.getElementById('itemPanier')
     let total = 0
     for (let keys of Object.keys(localStorage)) {

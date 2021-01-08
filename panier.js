@@ -6,7 +6,7 @@
 }
 
 // Fonction condition qui affiche un message si le panier est vide ou les détails de (des) objets dans le panier
-function panierCreation () {
+panierCreation = () => {
     let recapPanier = document.getElementById('recapPanier')
     if (localStorage.length == 0) {
         recapPanier.innerHTML = "Votre panier est vide"
@@ -20,7 +20,7 @@ function panierCreation () {
 }
 
 //On se sert de la fonction créee avec Fetch pour créer nos éléments et les incorporer dans le DOM
-function createCard(key, imgUrl, teddyName, teddyPrice){
+createCard = (key, imgUrl, teddyName, teddyPrice) => {
     let recapPanier = document.getElementById('recapPanier')
     for (let product of JSON.parse(localStorage[key])) {
 
@@ -60,13 +60,13 @@ function createCard(key, imgUrl, teddyName, teddyPrice){
 panierCreation ()
 
 // Fonction pour vider le panier, appelé quand on clique sur le bouton "Vider Panier" en HTML
-function viderPanier (){
+viderPanier = () => {
     localStorage.clear()
     window.location.reload()
 }
 
 // Calcul du prix Total du panier
-function totalPrice() {
+totalPrice = () => {
     let price = document.getElementById('totalPrice')
     let total = 0
     for (let keys of Object.keys(localStorage)) {
@@ -80,12 +80,11 @@ function totalPrice() {
 // On appelle la fonction
 totalPrice()
 
-
 //Validation du formulaire
 
 let validerCommande = document.getElementById('commander')
 
-function sendOrderApi(event){
+sendOrderApi = event => {
 
     // Création de variables pour récupérer les données du formulaire 
     let prenom = document.getElementById('prenom')
@@ -96,7 +95,7 @@ function sendOrderApi(event){
 
     // Variables pour effectuer les tests de caractère sur les champs du formulaire avec REGEX
     let testNomVilleValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/
-    let adresseValid = /^[A-Z-a-z-0-9\s]{5,80}$/
+    let adresseValid = /^[A-Z-a-z-0-9\s]{8,30}$/
     let emailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     //vérification si le champ nom contient des caractères interdits

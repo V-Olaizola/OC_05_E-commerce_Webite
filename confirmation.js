@@ -3,7 +3,7 @@ var url_string = window.location.href
 var url = new URL(url_string);
 var orderId = url.searchParams.get("OrderId");
 
-function createDivOrderId(orderId) {
+createDivOrderId = orderId => {
     let div = document.getElementById('confirm')
     let title = document.createElement('h4')
     let contenuTitle = document.createTextNode(`Merci pour votre confiance`)
@@ -18,7 +18,7 @@ function createDivOrderId(orderId) {
     localStorage.clear()
 }
 
-function addTotalPriceOrder(parent) {
+addTotalPriceOrder = parent => {
     let total = 0
     for (let keys of Object.keys(localStorage)) {
         for (product of JSON.parse(localStorage[keys])) {

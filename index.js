@@ -11,7 +11,7 @@ recupererNounourses()
 let section = document.getElementById('sectionIndex')
 
 //Fonction qui récupère les infos Teddies pour les placer dans le DOM
-function teddies(nounourses) {
+teddies = nounourses => {
     for (let teddy of nounourses){
 
         // Création éléments pour index html
@@ -57,7 +57,7 @@ function teddies(nounourses) {
 }
 
 // Fonction qui indique la quantité d'objects présents dans le panier dans le Header
-function cartCount() {
+cartCount = () => {
     let panier = document.getElementById('itemPanier')
     let total = 0
     for (let keys of Object.keys(localStorage)) {
