@@ -3,6 +3,12 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const idTeddies = urlParams.get('id')
 
+// Fonction qui utilise la méthode Fetch pour obtenir les données des Teddies à partir de l'API
+async function detailTeddy() {
+    await fetch ('http://localhost:3000/api/teddies/' + idTeddies)
+        .then((response) => response.json())
+        .then((nounours) => fillProduct(nounours))
+}
 // Fonction qui récupère les infos du Teddy et les place dans le DOM
 fillProduct = nounourses => {
     for (let option of nounourses.colors) {
@@ -21,15 +27,10 @@ fillProduct = nounourses => {
     let teddyDescription = document.getElementById('teddyDescription')
     teddyDescription.textContent = nounourses.description
 }
-// Fonction qui utilise la méthode Fetch pour obtenir les données des Teddies à partir de l'API
-async function detailTeddy() {
-    await fetch ('http://localhost:3000/api/teddies/' + idTeddies)
-        .then((response) => response.json())
-        .then((nounours) => fillProduct(nounours))
-}
 
 //On appelle la fonction
 detailTeddy()
+
 // Création du panier (localStorage)
 ajouter = () => {   // fonction appelée dans le bouton "Ajouter" en HTML
     let product = localStorage.getItem(idTeddies)
@@ -69,7 +70,7 @@ cartCount = () => {
             total += product.quantite
         }
     }
-    panier.textContent = ("(" + total + ")")
+    panier.textContent = (`(${total})`)
 }
 //On appelle la fonction
 cartCount()

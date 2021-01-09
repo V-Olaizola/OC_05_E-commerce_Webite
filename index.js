@@ -13,9 +13,7 @@ let section = document.getElementById('sectionIndex')
 //Fonction qui récupère les infos Teddies pour les placer dans le DOM
 teddies = nounourses => {
     for (let teddy of nounourses){
-
         // Création éléments pour index html
-
         let produit = document.createElement('div')
         let produitImg = document.createElement('div')
         let produitDetail = document.createElement('div')
@@ -26,7 +24,6 @@ teddies = nounourses => {
         let lienProduit = document.createElement('a')
 
         // Set Attribute pour index html
-  
         produit.setAttribute("class", "produit")
         produitImg.setAttribute("class", "produitImg")
         produitDetail.setAttribute("class", "produitDetail")
@@ -36,8 +33,7 @@ teddies = nounourses => {
         boutonInfo.setAttribute("class", "boutonInfo")
         lienProduit.setAttribute("href", "produit.html?id=" + teddy._id)
   
-      // Placement éléments pour index html 
-      
+        // Placement éléments pour index html 
         section.appendChild(produit)
         produit.appendChild(produitImg)
         produit.appendChild(produitDetail)
@@ -48,10 +44,9 @@ teddies = nounourses => {
         boutonInfo.appendChild(lienProduit)
   
         // Contenu éléments pour index html 
-  
         nomProduit.textContent = teddy.name
         produitPic.src = teddy.imageUrl
-        prixProduit.textContent = teddy.price/100 + "€"
+        prixProduit.textContent = `${teddy.price/100} €`
         lienProduit.textContent = "+ d'infos"
     }
 }
@@ -65,7 +60,7 @@ cartCount = () => {
             total += product.quantite
         }
      }
-    panier.textContent = ("(" + total + ")")
+    panier.textContent = (`(${total})`)
 }
 
 //On appelle la fonction

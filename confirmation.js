@@ -1,8 +1,9 @@
-//variables Globales
-var url_string = window.location.href
-var url = new URL(url_string);
-var orderId = url.searchParams.get("OrderId");
+// On récupère l'OrderId du produit présent dans l'URL
+const url_string = window.location.href
+const url = new URL(url_string);
+const orderId = url.searchParams.get("OrderId");
 
+// Fonction qui affiche le message de remerciement, la référence et le prix total
 createDivOrderId = orderId => {
     let div = document.getElementById('confirm')
     let title = document.createElement('h4')
@@ -14,11 +15,12 @@ createDivOrderId = orderId => {
     div.appendChild(newDiv)
     newDiv.appendChild(contenu)
 
-    addTotalPriceOrder(div)
+    totalPrice(div)
     localStorage.clear()
 }
 
-addTotalPriceOrder = parent => {
+// Fonction qui calcule le prix total de la commande
+totalPrice = parent => {
     let total = 0
     for (let keys of Object.keys(localStorage)) {
         for (product of JSON.parse(localStorage[keys])) {
@@ -27,9 +29,10 @@ addTotalPriceOrder = parent => {
         }
     }
     let divPrice = document.createElement('p')
-    let contenu = document.createTextNode("Le prix total de votre commande est de : " + total + "€")
+    let contenu = document.createTextNode(`Le prix total de votre commande est de : ${total} €`)
     parent.appendChild(divPrice)
     divPrice.appendChild(contenu)
 }
 
+// On appelle la fonction
 createDivOrderId(orderId)

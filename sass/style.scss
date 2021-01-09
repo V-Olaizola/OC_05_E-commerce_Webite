@@ -24,10 +24,6 @@ html {
     font-family: 'Finger Paint', cursive;
 }
 
-body {
-    min-width: 320px;
-}
-
 button {
     text-decoration: none;
     font-family: 'Finger Paint', cursive;
@@ -234,26 +230,18 @@ select:hover {
 
 .nomPanier {
     width: 22.5%;
-    display: flex;
-    justify-content: center;
 }
 
 .couleurPanier {
     width: 22.5%;
-    display: flex;
-    justify-content: center;
 }
 
 .quantitePanier {
     width: 22.5%;
-    display: flex;
-    justify-content: center;
 }
 
 .prixPanier {
     width: 22.5%;
-    display: flex;
-    justify-content: center;
 }
 
 .prixTotalPanier {
@@ -425,8 +413,8 @@ footer {
         width: auto;
         height: auto;
     }
-}
 
-#panierForm h3 {
-    margin-bottom: 10px;
+    #panierForm h3 {
+        margin-bottom: 10px;
+    }
 }

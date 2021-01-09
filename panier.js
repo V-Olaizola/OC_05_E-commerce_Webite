@@ -53,7 +53,7 @@ createCard = (key, imgUrl, teddyName, teddyPrice) => {
         nom.textContent = teddyName
         couleur.textContent = product.couleur
         quantite.textContent = product.quantite
-        prix.textContent = "Prix unitaire : " + teddyPrice/100 + "€"
+        prix.textContent = `Prix unitaire : ${teddyPrice/100}€`
     }
 }
 //On appelle la fonction
@@ -93,52 +93,53 @@ sendOrderApi = event => {
     let ville = document.getElementById('ville')
     let email = document.getElementById('email')
 
-    // Variables pour effectuer les tests de caractère sur les champs du formulaire avec REGEX
+    // Tests RegExp pour validation formulaire
     let testNomVilleValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/
     let adresseValid = /^[A-Z-a-z-0-9\s]{8,30}$/
     let emailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
-    //vérification si le champ nom contient des caractères interdits
     if (testNomVilleValid.test(nom.value) == false){
         event.preventDefault()
         alert("votre nom n'est pas conforme")
-    //vérification si le champ prénom contient des caractères interdits
+        return
     } else if (testNomVilleValid.test(prenom.value) == false){
         event.preventDefault()
         alert("votre prénom n'est pas conforme")
-    //vérification si le champ adresse contient des caractères interdits
+        return
     } else if (adresseValid.test(adresse.value) == false){
         event.preventDefault()
         alert("votre adresse n'est pas conforme")
-    //vérification si le champ ville contient des caractères interdits
+        return
     } else if (testNomVilleValid.test(ville.value) == false){
         event.preventDefault()
         alert("votre ville n'est pas conforme")
+        return
     } else if (emailValid.test(email.value) == false){
         event.preventDefault()
         alert("votre adresse mail n'est pas conforme")
+        return
     } else {
         event.preventDefault()
       }
-    //reccup les données rempli dans le formulaire
+    // Récupération valeurs du formulaire
     let contact = {
         firstName: nom.value,
         lastName: prenom.value,
         address: adresse.value,
         city: ville.value,
-        email: email.value,
+        email: email.value
     }
 
-    //Reccup les id des produit présent dans le localstorage
+    // Récupération des IDs du localStorage
     let products = Object.keys(localStorage)
 
-    //regroupe les données a envoyer (contact et id product)
+    // Données à envoyer
     let dataSend = {
         contact,
         products,
     }
 
-    //Fonction permettant l'envoie des données a l'API
+    // Fonction d'envoie des donées à l'API
     const sendApi = async function (data) {
         try {
             let reponse = await fetch (`http://localhost:3000/api/teddies/order`, {
@@ -162,52 +163,9 @@ sendOrderApi = event => {
         alert ("erreur : " + error)
         }
     }
-    //Appel de la focntion async pour la requete POST
+    //Appel de la fonction async pour la requete POST
     sendApi(dataSend)
 }
 
     //Clic avec appel de la fonction de verif et envoie a l'API
     validerCommande.addEventListener('click', sendOrderApi)
-
-//Envoi du formulaire vers l'API
-
-/* async function dataToApi(){
-
-let nom = document.getElementById('nom')
-let prenom = document.getElementById('prenom')
-let email = document.getElementById('email')
-let adresse = document.getElementById('adresse')
-let ville = document.getElementById('ville')
-
-let contact = {
-    prenom: prenom.value,
-    nom: nom.value,
-    email: prenom.value,
-    address: adress.value,
-    city: ville.value
-}
-
-let products = Object.keys(localStorage)
-        
-let panierConfirm = document.getElementById('commander')
-
-let dataSend = {
-    contact,
-    products
-}
-
-const options = {
-    method:'POST',
-    body: JSON.stringify(dataSend),
-    headers: {
-      'Content-type': 'application/json'
-    }
-}
-
-const reponse = await fetch('http://localhost:3000/api/teddies/order', options)
-const donnees = await reponse.json()
-window.location = 'confirmation.html?orderId=' + donnees.orderId
-
-} */
-
-// validerCommande.addEventListener('click', dataToApi)
