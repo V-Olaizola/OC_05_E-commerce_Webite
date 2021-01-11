@@ -24,8 +24,8 @@ button {
 
 button:hover {
   background-color: #f1c3e8;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 header {

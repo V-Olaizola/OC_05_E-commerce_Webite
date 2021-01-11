@@ -52,7 +52,7 @@ teddies = nounourses => {
 }
 
 // Fonction qui indique la quantité d'objects présents dans le panier dans le Header
-cartCount = () => {
+    cartCount = () => {
     let panier = document.getElementById('itemPanier')
     let total = 0
     for (let keys of Object.keys(localStorage)) {
@@ -61,7 +61,7 @@ cartCount = () => {
         }
      }
     panier.textContent = (`(${total})`)
-}
+} 
 
 //On appelle la fonction
 cartCount()
